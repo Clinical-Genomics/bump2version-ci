@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - 'master'
-jobs:
-  bump:
-    runs:
-      using: 'docker'
-      image: "clinicalgenomics/bum2version-ci:latest"
-      env:
-        - ${{ secrets.GITHUB_TOKEN }}
+
+runs:
+  using: 'docker'
+  image: "clinicalgenomics/bum2version-ci:latest"
+  env:
+    - ${{ secrets.GITHUB_TOKEN }}
