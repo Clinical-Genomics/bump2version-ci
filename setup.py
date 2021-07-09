@@ -5,7 +5,7 @@ from setuptools import setup
 
 AUTHOR = "TEST"
 DESCRIPTION = "TEST"
-EMAIL = "TEST"
+EMAIL = "mariaropat@gmail.com"
 HERE = os.path.abspath(os.path.dirname(__file__))
 NAME = "TEST"
 
