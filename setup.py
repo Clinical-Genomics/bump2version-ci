@@ -12,7 +12,7 @@ NAME = "TEST"
 
 setup(
     name=NAME,
-    version="0.0.0",
+    version="0.0.1",
     description=DESCRIPTION,
     long_description="TEST",
     long_description_content_type="text/markdown",
