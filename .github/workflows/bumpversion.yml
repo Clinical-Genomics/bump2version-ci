@@ -4,15 +4,14 @@ on:
   push:
     branches:
       - 'master'
-
       - 'main'
+
 jobs:
-  bump-bersion:
+  bump-version:
     runs-on: ubuntu-latest
-      steps:
-        name: Try bump
+    name: Bumping version
+    steps:
+      - name: Try bump
         uses: Clinical-Genomics/bump2version-ci@master
         with:
           repository: "https://github.com/Clinical-Genomics/bump2version-ci.git"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
