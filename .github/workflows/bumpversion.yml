@@ -1,4 +1,4 @@
-name: 'Bumpversion'
+name: 'Bump2version-CI'
 on:
   push:
     branches:
@@ -8,9 +8,9 @@ on:
 jobs:
   bump-version:
     runs-on: ubuntu-latest
-    name: Bumping version
+    name: Bump version and push tags to master
     steps:
-      - name: Try bump
+      - name: Bump version
         uses: Clinical-Genomics/bump2version-ci@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
