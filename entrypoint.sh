@@ -3,17 +3,15 @@
 set -o pipefail
 
 REPOSITORY="https://github.com/${GITHUB_REPOSITORY}.git"
-echo "${REPOSITORY}"
+echo "Cloning ${REPOSITORY}"
 VERSION="patch"
-#REPOSITORY_NAME="${INPUT_REPOSITORY}"|rev|cut -f 1 -d '/'|rev|cut -d '.' -f 1
-#echo "${REPOSITORY_NAME}"
 
 git clone "${REPOSITORY}"
 cd "$(ls)" || exit
 
 bump2version --config-file .bumpversion.cfg "${VERSION}"
-git push
-git push --tags
+git push https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+git push https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
 
 
 
