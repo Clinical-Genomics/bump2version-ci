@@ -2,11 +2,11 @@
 
 set -o pipefail
 
-#REPOSITORY=$1
-#REPOSITORY="https://github.com/Clinical-Genomics/bump2version-ci.git"
+REPOSITORY="https://github.com/${GITHUB_REPOSITORY}.git"
+echo "${REPOSITORY}"
 VERSION="patch"
 REPOSITORY_NAME=$(echo "${INPUT_REPOSITORY}"|rev|cut -f 1 -d '/'|rev|cut -d '.' -f 1)
-
+echo "${REPOSITORY_NAME}"
 
 git clone "${REPOSITORY}"
 cd "${REPOSITORY_NAME}" || exit
