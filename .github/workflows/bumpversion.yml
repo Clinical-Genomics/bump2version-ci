@@ -12,7 +12,5 @@ jobs:
     steps:
       - name: Try bump
         uses: Clinical-Genomics/bump2version-ci@master
-        with:
-          repository: "https://github.com/Clinical-Genomics/bump2version-ci.git"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

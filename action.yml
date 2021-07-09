@@ -1,13 +1,6 @@
 name: "Bump2version action"
 description: "Bumps version"
-inputs:
-  repository:  # id of input
-    description: what repository to bump
-    required: true
-    default: "https://github.com/Clinical-Genomics/bump2version-ci.git"
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.repository }}
