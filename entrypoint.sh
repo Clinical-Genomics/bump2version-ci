@@ -9,7 +9,7 @@ REPOSITORY_NAME=$(echo "${REPOSITORY}"|rev|cut -f 1 -d '/'|rev|cut -d '.' -f 1)
 
 
 git clone "${REPOSITORY}"
-cd "${REPOSITORY_NAME}" || return
+cd "${REPOSITORY_NAME}" || exit
 bump2version "${VERSION}"
 git push
 git push --tags

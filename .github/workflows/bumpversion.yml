@@ -1,0 +1,13 @@
+name: 'Bumpversion'
+description: 'Greet someone and record the time'
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  bump:
+    runs:
+      using: 'docker'
+      image: "clinicalgenomics/bum2version-ci:latest"
+      env:
+        - ${{ secrets.GITHUB_TOKEN }}
