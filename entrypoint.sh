@@ -10,8 +10,8 @@ git clone "${REPOSITORY}"
 cd "$(ls)" || exit
 
 bump2version --config-file .bumpversion.cfg "${VERSION}"
-git push https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-git push https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
+git push https://${GIHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+git push https://${GIHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
 
 
 
