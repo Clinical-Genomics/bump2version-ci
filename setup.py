@@ -1,24 +1,14 @@
-
-import os
-
 from setuptools import setup
 
-AUTHOR = "TEST"
-DESCRIPTION = "TEST"
-EMAIL = "mariaropat@gmail.com"
-HERE = os.path.abspath(os.path.dirname(__file__))
-NAME = "TEST"
-
-
 setup(
-    name=NAME,
+    name="bump2version-ci",
     version="0.0.3",
-    description=DESCRIPTION,
-    long_description="TEST",
+    description="Bump package version automatically",
+    long_description="This file exists as proof of concept that bump2version-ci works on itself",
     long_description_content_type="text/markdown",
-    keywords="analysis monitoring",
-    author=AUTHOR,
-    author_email=EMAIL,
+    keywords="CI, bump2version",
+    author="Maria Ropat",
+    author_email="maryia.ropart@scilifelab.se",
     license="MIT",
     url="TEST",
 )
