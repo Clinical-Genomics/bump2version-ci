@@ -8,7 +8,7 @@ on:
 jobs:
   steps:
     name: Try bump
-    uses: Clinical-Genomics/bump2version-ci@v2
+    uses: Clinical-Genomics/bump2version-ci@master
     with:
       repository: "https://github.com/Clinical-Genomics/bump2version-ci.git"
     env:
