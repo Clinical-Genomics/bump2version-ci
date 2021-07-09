@@ -6,4 +6,4 @@ RUN apt-get update
 RUN apt-get -y install git
 RUN pip install bump2version
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
