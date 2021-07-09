@@ -1,14 +1,15 @@
 name: 'Bumpversion'
-description: 'Greet someone and record the time'
+description: "Bump"
 on:
   push:
     branches:
       - 'master'
+      -
 jobs:
   steps:
     name: Try bump
-    runs:
-      using: 'docker'
-      image: "clinicalgenomics/bum2version-ci:latest"
-      env:
-        - ${{ secrets.GITHUB_TOKEN }}
+    uses: Clinical-Genomics/bump2version-ci@v2
+    with:
+      repository: "https://github.com/Clinical-Genomics/bump2version-ci.git"
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
