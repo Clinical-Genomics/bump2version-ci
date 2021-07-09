@@ -1,5 +1,4 @@
 name: 'Bumpversion'
-description: "Bump"
 on:
   push:
     branches:
