@@ -1,12 +1,12 @@
 name: Releases
 
 on:
-  push:
-    tags:
-    - '*'
+  workflow_run:
+    workflows: [ "Bump2version-CI" ]
+    types: [ completed ]
 
 jobs:
-  build:
+  on-success:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

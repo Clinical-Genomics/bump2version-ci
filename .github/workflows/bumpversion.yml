@@ -4,7 +4,6 @@ on:
     branches:
       - 'master'
       - 'main'
-
 jobs:
   bump-version:
     runs-on: ubuntu-latest
