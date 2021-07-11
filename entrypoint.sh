@@ -25,22 +25,15 @@ git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
 git pull
 
 NEW_TAG="$(git describe)"
+POST_DATA="{tag_name: $NEW_TAG, name: Release $NEW_TAG, draft: false, prerelease: false}"
 
-generate_post_data()
-{
-  cat <<EOF
-{
-  "tag_name": $NEW_TAG ,
-  "target_commitish": "$NEW_TAG",
-  "name": "$NEW_TAG",
-  "body": "Release $NEW_TAG",
-  "draft": false,
-  "prerelease": false
-}
-EOF
-}
-
-curl --data "$(generate_post_data)" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$GITHUB_TOKEN"
+echo "Submitting release for $NEW_TAG"
+echo "$(generate_post_data)"
+curl \
+  -X POST \
+  -H "Accept: application/vnd.github.v3+json" \
+  -d "$POST_DATA" \
+  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$GITHUB_TOKEN"
 
 
 
