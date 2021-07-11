@@ -16,5 +16,5 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTOR: ${{ github.actor }}
         with:
-          release-pat: ${{ secrets.BUMPVERSION_TOKEN }}
+          release_pat: ${{ secrets.BUMPVERSION_TOKEN }}
 

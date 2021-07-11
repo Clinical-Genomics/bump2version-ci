@@ -2,7 +2,7 @@ name: "Bump2version action"
 description: "Bumps version"
 
 inputs:
-  release-pat:
+  release_pat:
     description: "PAT of the release author"
     required: true
 

@@ -24,8 +24,8 @@ git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
 git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
 git pull
 
-BUMPVERSION_TOKEN=$INPUT_RELEASE-PAT
-echo "token start with $(echo $INPUT_RELEASE-PAT)"
+BUMPVERSION_TOKEN=$INPUT_RELEASE_PAT
+echo "token start with $(echo $INPUT_RELEASE_PAT | cut -c1-3)"
 
 NEW_TAG="$(git describe)"
 POST_DATA=$(echo {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"target_commitish\": \"$NEW_TAG\", \"draft\": false, \"prerelease\": false})
