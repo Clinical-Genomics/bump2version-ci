@@ -17,10 +17,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTOR: ${{ github.actor }}
 
-      - uses: actions/checkout@master
       - name: Create a Release
         uses: elgohr/Github-Release-Action@master
           env:
             GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-              with:
-                args: "New release!"
+          with:
+            args: "New release!"
