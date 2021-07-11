@@ -15,7 +15,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTOR: ${{ github.actor }}
-          INPUT_RELEASE-PAT: ${{ secrets.BUMPVERSION_TOKEN }}
         with:
-          release-pat: "${{ secrets.BUMPVERSION_TOKEN }}"
+          release-pat: ${{ secrets.BUMPVERSION_TOKEN }}
 
