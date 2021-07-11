@@ -3,7 +3,7 @@ name: Release with latest tag
 on:
   push:
     tags:
-      - '*'
+      - '*.*.*'
 
 jobs:
   build:
