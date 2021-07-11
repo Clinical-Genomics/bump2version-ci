@@ -2,9 +2,6 @@ name: "Bump2version action"
 description: "Bumps version"
 
 inputs:
-  release-author:
-    description: "Person authoring the automated release"
-    required: true
   release-pat:
     description: "PAT of the release author"
     required: true
@@ -12,6 +9,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.release-author }}
-    - ${{ inputs.release-pat }}

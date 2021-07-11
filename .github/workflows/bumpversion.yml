@@ -16,6 +16,5 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTOR: ${{ github.actor }}
         with:
-          release-author: Mropat
           release-pat: ${{ secrets.BUMPVERSION_TOKEN }}
 
