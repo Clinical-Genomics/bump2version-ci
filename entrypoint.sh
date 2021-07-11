@@ -24,17 +24,14 @@ git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
 git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
 git pull
 
-BUMPVERSION_TOKEN=$INPUT_RELEASE_PAT
-echo "token start with $(echo $INPUT_RELEASE_PAT | cut -c1-3)"
-
 NEW_TAG="$(git describe)"
-POST_DATA=$(echo {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"target_commitish\": \"$NEW_TAG\", \"draft\": false, \"prerelease\": false})
+POST_DATA=$(echo {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"draft\": false, \"prerelease\": false})
 echo "Submitting release for $NEW_TAG"
 curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -d "$POST_DATA" \
-  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$BUMPVERSION_TOKEN"
+  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$INPUT_RELEASE_PAT"
 
 
 
