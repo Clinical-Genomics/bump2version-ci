@@ -26,8 +26,6 @@ git pull
 
 NEW_TAG="$(git describe)"
 POST_DATA=$(echo {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"draft\": false, \"prerelease\": false})
-echo $POST_DATA
-
 echo "Submitting release for $NEW_TAG"
 curl \
   -X POST \
