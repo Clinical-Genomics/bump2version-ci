@@ -22,6 +22,26 @@ git config --global user.name "Github CI"
 bump2version --config-file .bumpversion.cfg "${VERSION}"
 git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
+git pull
+
+NEW_TAG="$(git describe)"
+
+generate_post_data()
+{
+  cat <<EOF
+{
+  "tag_name": $NEW_TAG ,
+  "target_commitish": "$NEW_TAG",
+  "name": "$NEW_TAG",
+  "body": "Release $NEW_TAG",
+  "draft": false,
+  "prerelease": false
+}
+EOF
+}
+
+curl --data "$(generate_post_data)" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$GITHUB_TOKEN"
+
 
 
 
