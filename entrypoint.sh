@@ -31,7 +31,7 @@ curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -d "$POST_DATA" \
-  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$GITHUB_TOKEN"
+  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$BUMPVERSION_TOKEN"
 
 
 

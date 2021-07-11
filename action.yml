@@ -1,6 +1,14 @@
 name: "Bump2version action"
 description: "Bumps version"
 
+inputs:
+  release-author:
+    description: "Person authoring the automated release"
+    default: Mropat
+  release-pat:
+    description: "PAT of the release author"
+    default: {{ secrets.BUMPVERSION_TOKEN }}
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
