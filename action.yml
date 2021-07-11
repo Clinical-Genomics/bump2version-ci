@@ -4,12 +4,10 @@ description: "Bumps version"
 inputs:
   release-author:
     description: "Person authoring the automated release"
-    required: false
-    default: Mropat
+    required: true
   release-pat:
     description: "PAT of the release author"
-    required: false
-    default: ${{ secrets.BUMPVERSION_TOKEN }}
+    required: true
 
 runs:
   using: 'docker'
