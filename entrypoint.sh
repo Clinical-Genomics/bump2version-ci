@@ -25,7 +25,7 @@ git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
 git pull
 
 NEW_TAG="$(git describe)"
-POST_DATA="{'tag_name': '$NEW_TAG', 'name': 'Release $NEW_TAG', 'draft': 'false', 'prerelease': 'false'}"
+POST_DATA="{'tag_name': '$NEW_TAG', 'name': 'Release $NEW_TAG', 'draft': false, 'prerelease': false}"
 
 echo "Submitting release for $NEW_TAG"
 echo $POST_DATA
