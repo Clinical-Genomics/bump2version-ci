@@ -17,7 +17,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ACTOR: ${{ github.actor }}
 
-      - uses: actions/checkout@master
       - name: Create a Release
         uses: elgohr/Github-Release-Action@master
         env:
