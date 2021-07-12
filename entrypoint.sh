@@ -30,8 +30,9 @@ echo "Submitting release for $NEW_TAG"
 curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
+  -H "Authorization: token $INPUT_RELEASE_PAT" \
   -d "$POST_DATA" \
-  "https://api.github.com/repos/$GITHUB_REPOSITORY/releases?access_token=$INPUT_RELEASE_PAT"
+  "https://api.github.com/$GITHUB_REPOSITORY"
 
 
 
