@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Requiered env vars:
+
+# GITHUB_TOKEN: 
+# GITHUB_REPOSITORY: 
+# GITHUB_ACTOR: 
+
+# INPUT_RELEASE_PAT:
+
+
+
+
 set -eo pipefail
 
 REPOSITORY="https://github.com/${GITHUB_REPOSITORY}.git"
