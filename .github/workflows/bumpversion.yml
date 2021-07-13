@@ -17,4 +17,3 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
         with:
           release_pat: ${{ secrets.BUMPVERSION_TOKEN }}
-
