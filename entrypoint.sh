@@ -53,5 +53,5 @@ curl \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token ${INPUT_RELEASE_PAT}" \
-  -d "$POST_DATA" \
+  -d "${POST_DATA}" \
   "https://api.github.com/$GITHUB_REPOSITORY/releases"
