@@ -3,7 +3,7 @@ description: "Bumps version"
 
 inputs:
   release_pat:
-    description: "PAT of the release author"
+    description: "PAT (Personal Access Token) of the release author"
     required: true
 
 runs:
