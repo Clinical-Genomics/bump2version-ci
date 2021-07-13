@@ -6,7 +6,7 @@ It will also automatically publish a new release on behalf of the user who creat
 
 ## Setup
 
-###Add following workflow to your repository
+### Add following workflow to your repository
 
 ```yaml
 name: 'Bump2version-CI'
@@ -32,7 +32,7 @@ jobs:
 
 ### Add `.bumpversion.cfg` file to your repository
 
-```toml
+```
 [bumpversion]
 current_version = 0.0.0
 commit = True
