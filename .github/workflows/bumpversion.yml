@@ -14,4 +14,5 @@ jobs:
         env:
           BUMPVERSION_TOKEN: ${{ secrets.BUMPVERSION_TOKEN }}
           BUMPVERSION_AUTHOR: ${{ secrets.BUMPVERSION_AUTHOR }}
+          BUMPVERSION_EMAIL: ${{ secrets.BUMPVERSION_EMAIL }}
           GITHUB_REPOSITORY: ${{ github.repository }}

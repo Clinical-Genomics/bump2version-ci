@@ -4,6 +4,7 @@
 
 # BUMPVERSION_TOKEN: personal access token
 # BUMPVERSION_AUTHOR: personal access token author
+# BUMPVERSION_EMAIL: personal access token author's registered email
 # GITHUB_REPOSITORY: repository this action runs on
 
 
@@ -16,7 +17,8 @@ git clone "${REPOSITORY_URI}"
 
 cd "$(ls)" || exit
 
-git remote set-url origin "${REPOSITORY_URI}"
+git config --global user.email "${BUMPVERSION_EMAIL}"
+git config --global user.name "Clinical Genomics Bot"
 
 # Fetching the commit message for the latest commit to branch this action is applied to
 COMMIT_MSG=$(git log -1 --pretty=%B|sed 's/\r$//g'|sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\\n/g')
