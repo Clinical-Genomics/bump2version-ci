@@ -16,7 +16,7 @@ git clone "${REPOSITORY_URI}"
 
 cd "$(ls)" || exit
 
-git remote add origin "${REPOSITORY_URI}"
+git remote set-url origin "${REPOSITORY_URI}"
 
 # Fetching the commit message for the latest commit to branch this action is applied to
 COMMIT_MSG=$(git log -1 --pretty=%B|sed 's/\r$//g'|sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\\n/g')
