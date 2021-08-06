@@ -35,6 +35,9 @@ git config --global user.name "Github CI"
 
 # Run bump2version
 bump2version --config-file .bumpversion.cfg "${VERSION}"
+BUMP_COMMIT_MSG=$(git log -1 --pretty=%B)
+git commit --amend -m "${BUMP_COMMIT_MSG} [skip ci]"
+
 git push "${REPOSITORY_URI}"
 git push "${REPOSITORY_URI}" --tags
 
