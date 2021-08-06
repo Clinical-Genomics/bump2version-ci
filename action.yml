@@ -1,11 +1,6 @@
 name: "Bump2version action"
 description: "Bumps version"
 
-inputs:
-  release_pat:
-    description: "PAT (Personal Access Token) of the release author"
-    required: true
-
 runs:
   using: 'docker'
   image: 'Dockerfile'

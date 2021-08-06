@@ -23,21 +23,27 @@ jobs:
       - name: Bump version
         uses: Clinical-Genomics/bump2version-ci@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUMPVERSION_TOKEN: ${{ secrets.BUMPVERSION_TOKEN }}
+          BUMPVERSION_AUTHOR: ${{ secrets.BUMPVERSION_AUTHOR }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_ACTOR: ${{ github.actor }}
-        with:
-          release_pat: ${{ secrets.BUMPVERSION_TOKEN }}
 ```
 
 ### Add `.bumpversion.cfg` file to your repository
 
+
+#### IMPORTANT! 
+```
+[skip ci] tag needs to be included in bumpversion commit message, otherwise the action will keep triggering itself indefinitely!  
+```
+
+#### Example bumpversion.cfg :
 ```
 [bumpversion]
 current_version = 0.0.0
 commit = True
 tag = True
 tag_name = {new_version}
+message = Bump version: {current_version} → {new_version} [skip ci] 
 
 [bumpversion:file:setup.py]
 [bumpversion:file:<package>/__init__.py]
@@ -48,4 +54,12 @@ tag_name = {new_version}
 * Go to `Account Settings / Developer settings / Personal access tokens` and 
 create a new PAT
 * Go to `Repository Setting / Secrets` and add the PAT as `BUMPVERSION_TOKEN`
+
+### When installed in repository
+
+* When pull request is ready to be merged, select "Squash and merge"
+* Using the merge commit form, add the title and issue number of the pull request.
+* Add mkdown formatted changelog as detailed commit message. 
+* The commit message and formatting will be propagated towards the release.
+
 
