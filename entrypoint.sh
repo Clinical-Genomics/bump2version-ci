@@ -21,7 +21,7 @@ git config --global user.email "${BUMPVERSION_EMAIL}"
 git config --global user.name "Clinical Genomics Bot"
 
 # Fetching the commit message for the latest commit to branch this action is applied to
-COMMIT_MSG=$(git log -1 --pretty=%B|sed 's/\r$//g'|sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\\n/g')
+COMMIT_MSG=$(git log -1 --pretty=%B|sed 's/\r$//g'|sed -e ':a' -e 'N' -e '$!ba')
 
 # Parsing version update increment from commit message
 if [[ $COMMIT_MSG == *'(major)'* ]]; then
@@ -45,7 +45,11 @@ git pull
 NEW_TAG="$(git describe)"
 
 # Construct post JSON for publishing release
-POST_DATA=$(echo -e {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"draft\": false, \"prerelease\": false, \"body\": \""${COMMIT_MSG}"\"})
+
+POST_DATA=$(jq -n \
+  --arg nt "$NEW_TAG" \
+  --arg cm "$COMMIT_MSG" \
+  '{ tag_name: $nt, name: ("Release " + $nt), draft: false, prerelease: false, body: $cm}')
 
 echo "Submitting release for ${NEW_TAG}"
 
