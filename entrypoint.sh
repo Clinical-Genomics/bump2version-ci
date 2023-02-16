@@ -45,7 +45,7 @@ git pull
 NEW_TAG="$(git describe)"
 
 # Construct post JSON for publishing release
-POST_DATA=$(echo -e {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"draft\": false, \"prerelease\": false, \"body\": \""${COMMIT_MSG}"\"})
+POST_DATA=$(echo -e {\"tag_name\": \"$NEW_TAG\", \"name\": \"Release $NEW_TAG\", \"draft\": false, \"prerelease\": false, \"body\": \"${COMMIT_MSG}\"\})
 
 echo "Submitting release for ${NEW_TAG}"
 
