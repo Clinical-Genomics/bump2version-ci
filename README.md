@@ -28,6 +28,8 @@ jobs:
           BUMPVERSION_AUTHOR: ${{ secrets.BUMPVERSION_AUTHOR }}
           BUMPVERSION_EMAIL: ${{ secrets.BUMPVERSION_EMAIL }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Optional:
+          # POST_BUMP_COMMAND: python -m cg.utils.changelog --update-existing CHANGELOG.md
 ```
 
 ### Add `.bumpversion.cfg` file to your repository
@@ -64,4 +66,33 @@ create a new PAT
 * Add mkdown formatted changelog as detailed commit message. 
 * The commit message and formatting will be propagated towards the release.
 
+## Optional post-bump hook
+
+You can run an additional command after `bump2version` and before the action pushes the branch and tags
+by setting the `POST_BUMP_COMMAND` environment variable.
+
+If that command changes files in the repository, the action will:
+
+* stage the changes
+* amend the existing bump commit
+* move any tags pointing at the bump commit to the amended commit
+
+This is useful for tasks such as updating a generated changelog in the same release commit and tag.
+
+Example:
+
+```yaml
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version
+        uses: Clinical-Genomics/bump2version-ci@v3
+        env:
+          BUMPVERSION_TOKEN: ${{ secrets.BUMPVERSION_TOKEN }}
+          BUMPVERSION_AUTHOR: ${{ secrets.BUMPVERSION_AUTHOR }}
+          BUMPVERSION_EMAIL: ${{ secrets.BUMPVERSION_EMAIL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          POST_BUMP_COMMAND: python -m cg.utils.changelog --update-existing CHANGELOG.md
+```
 
